@@ -12,6 +12,11 @@ export const sequelizeProvider = [
         username: process.env.DB_USERNAME || 'user',
         password: process.env.DB_PASSWORD || 'password',
         database: process.env.DB_NAME || 'db',
+        dialectOptions: {
+          ssl: {
+            require: true,
+          },
+        },
       });
       sequelize.addModels([Users]);
       await sequelize.sync();
